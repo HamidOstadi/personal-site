@@ -1,8 +1,24 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Hamid Ostadi — Portfolio",
-  description: "Digital economy, social data science, policy & AI work.",
+  title: "Hamid Ostadi — Policy, Data & AI",
+  description:
+    "Digital economy, labour markets, AI governance, and applied tools for decision-makers. Selected work in policy analysis, research design, automation, and data products.",
+  metadataBase: new URL("https://personal-site-ochre-three.vercel.app"),
+  openGraph: {
+    title: "Hamid Ostadi — Policy, Data & AI",
+    description:
+      "AI, labour markets, digital economy, and practical tooling for decision-makers.",
+    url: "https://personal-site-ochre-three.vercel.app",
+    siteName: "Hamid Ostadi",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Hamid Ostadi — Policy, Data & AI",
+    description:
+      "AI, labour markets, digital economy, and practical tooling for decision-makers.",
+  },
 };
 
 export default function RootLayout({
