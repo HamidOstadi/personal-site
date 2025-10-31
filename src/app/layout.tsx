@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Github, Linkedin, Twitter, Send } from "lucide-react";
+import { Github, Linkedin, Twitter, Send, Instagram } from "lucide-react";
 
 export const metadata = {
   title: "Hamid Ostadi — Policy, Data & AI",
@@ -117,6 +117,18 @@ export default function RootLayout({
         <Send className="h-4 w-4" />
         <span className="text-xs font-medium">Telegram</span>
       </a>
+
+      {/* Instagram */}
+      <a
+        href="https://www.instagram.com/hmdostadi/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+      >
+      <Instagram className="h-4 w-4" />
+      <span className="text-xs font-medium">Instagram</span>
+      </a>
+
     </div>
   </div>
 </footer>
