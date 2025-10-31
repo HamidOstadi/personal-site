@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Github, Linkedin, Twitter, Send } from "lucide-react";
 
 export const metadata = {
   title: "Hamid Ostadi — Policy, Data & AI",
@@ -65,46 +66,61 @@ export default function RootLayout({
 
         {/* FOOTER */}
         <footer className="w-full border-t border-zinc-200/60 dark:border-zinc-800/60 py-8 text-sm text-zinc-500 dark:text-zinc-600">
-  <div className="flex flex-wrap items-center justify-center gap-2">
-    <span>© 2025 Hamid Ostadi</span>
-    <span>|</span>
-    <a
-      href="https://www.linkedin.com/in/hamidostadi/"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-    >
-      LinkedIn
-    </a>
-    <span>|</span>
-    <a
-      href="https://github.com/hamidostadi"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-    >
-      GitHub
-    </a>
-    <span>|</span>
-    <a
-      href="https://twitter.com/hamidostadi"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-    >
-      X / Twitter
-    </a>
-    <span>|</span>
-    <a
-      href="https://t.me/hamidostadi"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-    >
-      Telegram
-    </a>
+  <div className="flex flex-col items-center gap-4 px-4 text-center">
+    {/* Top row: name and year */}
+    <div className="text-xs text-zinc-500 dark:text-zinc-600">
+      © 2025 Hamid Ostadi
+    </div>
+
+    {/* Social row */}
+    <div className="flex flex-wrap items-center justify-center gap-4 text-zinc-600 dark:text-zinc-400">
+      {/* LinkedIn */}
+      <a
+        href="https://www.linkedin.com/in/hamidostadi/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+      >
+        <Linkedin className="h-4 w-4" />
+        <span className="text-xs font-medium">LinkedIn</span>
+      </a>
+
+      {/* GitHub */}
+      <a
+        href="https://github.com/hamidostadi"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+      >
+        <Github className="h-4 w-4" />
+        <span className="text-xs font-medium">GitHub</span>
+      </a>
+
+      {/* X / Twitter */}
+      <a
+        href="https://twitter.com/hamidostadi"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+      >
+        <Twitter className="h-4 w-4" />
+        <span className="text-xs font-medium">X / Twitter</span>
+      </a>
+
+      {/* Telegram */}
+      <a
+        href="https://t.me/hamidostadi"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+      >
+        <Send className="h-4 w-4" />
+        <span className="text-xs font-medium">Telegram</span>
+      </a>
+    </div>
   </div>
 </footer>
+
       </body>
     </html>
   );
