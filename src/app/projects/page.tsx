@@ -4,6 +4,7 @@ type Project = {
   contribution: string;
   status: "Live" | "In progress" | "Prototype" | "Design";
   tags: string[];
+  slug?: string; // NEW: optional link to a detail page
 };
 
 const projects: Project[] = [
@@ -15,6 +16,7 @@ const projects: Project[] = [
       "I’m building a Chrome extension that scrolls a profile, extracts posting patterns, detects Farsi/RTL content, and surfaces red flags like abnormal timing, repeated messaging, or engineered engagement.",
     status: "In progress",
     tags: ["Chrome Extension", "Social Data", "Disinformation"],
+    slug: "/projects/x-farsi-analyzer",
   },
   {
     title: "AI-Assisted Radiology Decision Support",
@@ -80,7 +82,16 @@ export default function ProjectsPage() {
             {/* Title row */}
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
               <h2 className="font-semibold text-lg text-zinc-900 dark:text-zinc-100">
-                {proj.title}
+                 {proj.slug ? (
+                    <a
+                      href={proj.slug}
+                      className="hover:underline hover:text-zinc-700 dark:hover:text-zinc-300"
+                    >
+                     {proj.title}
+                    </a>
+  ) : (
+    proj.title
+  )}
               </h2>
 
               <span
