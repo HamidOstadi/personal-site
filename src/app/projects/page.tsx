@@ -26,6 +26,7 @@ const projects: Project[] = [
       "I designed an experimental protocol (multi-reader multi-case) to test whether AI suggestions and AI confidence scores change clinician accuracy, calibration, and diagnostic bias in pneumonia detection.",
     status: "Design",
     tags: ["AI Safety", "Health", "Experimental Design"],
+    slug: "/projects/radiology-ai",
   },
   {
     title: "Climate & Social Protection Tracker (UNICEF)",
