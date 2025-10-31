@@ -10,6 +10,25 @@ export default function Home() {
         Working on digital economy, social data science, and practical tools
         that connect research to impact.
       </p>
+      
+      {/* Currently Card */}
+      <div className="mt-6 rounded-2xl border border-zinc-200/60 dark:border-zinc-800/60 bg-white dark:bg-zinc-900 px-5 py-4 shadow-sm max-w-xl mx-auto sm:mx-0">
+        <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 tracking-wide uppercase">
+         Currently
+        </h2>
+        <p className="mt-2 text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
+         Working on advanced modules of my{" "}
+          <a
+          href="/projects/x-farsi-analyzer"
+          className="text-blue-600 dark:text-blue-400 hover:underline"
+          >
+            X Farsi Analyzer
+          </a>{" "}
+          — expanding it to detect coordinated messaging and behavioral anomalies
+          across multilingual networks.
+        </p>
+      </div>
+
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2">
         <a
