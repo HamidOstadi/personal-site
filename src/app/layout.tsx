@@ -6,7 +6,7 @@ export const metadata = {
   title: "Hamid Ostadi — Policy, Data & AI",
   description:
     "Digital economy, labour markets, AI governance, and applied tools for decision-makers. Selected work in policy analysis, research design, automation, and data products.",
-  metadataBase: new URL("https://personal-site-ochre-three.vercel.app"),
+  metadataBase: new URL("https://hamidostadi.com"),
   openGraph: {
     title: "Hamid Ostadi — Policy, Data & AI",
     description:

@@ -1,166 +1,243 @@
 export default function RadiologyAIPage() {
   return (
-    <section className="space-y-8">
-      {/* Title + status */}
+    <section className="mx-auto max-w-3xl py-16 px-6 text-left space-y-10">
+      {/* Title / Status */}
       <header className="space-y-2">
         <h1 className="text-3xl font-bold text-zinc-900 dark:text-zinc-100">
           AI-Assisted Radiology Decision Support
         </h1>
         <p className="text-sm text-zinc-500 dark:text-zinc-500">
-          Status: Design · Focus: Diagnostic safety, AI calibration, clinical workflow
+          Status: Research design & prototyping · Focus: diagnostic safety,
+          assistive AI, and clinical workflow
+        </p>
+        <p className="text-sm text-zinc-500 dark:text-zinc-500">
+          Repo structure includes: <code className="font-mono text-xs">agent_design</code>,{" "}
+          <code className="font-mono text-xs">causal_analysis</code>,{" "}
+          <code className="font-mono text-xs">experiment_proposal</code>,{" "}
+          <code className="font-mono text-xs">docs</code>
         </p>
       </header>
 
-      {/* Problem */}
+      {/* Problem / Motivation */}
       <section className="space-y-3">
         <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
           The problem
         </h2>
-        <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-base">
-          Radiologists and clinicians make high-stakes diagnostic decisions under time
-          pressure. AI systems promise to “help,” but we don’t actually know if that help
-          reduces diagnostic error — or if it just changes clinician behavior in risky ways
-          (for example, making them over-trust the AI or feel overconfident).
+        <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+          Clinicians and radiologists make time-pressured, high-stakes
+          decisions that directly affect patient outcomes. AI support tools
+          promise to “help,” but right now we don’t have strong evidence about
+          how they actually change human decision-making under real workflow
+          conditions.
         </p>
-        <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-base">
-          Regulators, hospitals, and AI vendors all talk about “AI improves care,” but in
-          practice there’s still very little rigorous, controlled evidence about how AI
-          support actually changes decision quality in real reading conditions.
+
+        <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+          The core questions are not just <em>“Is the model accurate?”</em> but:
         </p>
+
+        <ul className="list-disc pl-5 text-zinc-700 dark:text-zinc-300 leading-relaxed space-y-2">
+          <li>Does AI support make the final diagnosis more correct?</li>
+          <li>
+            Does AI support reduce dangerous errors (for example, missing
+            pneumonia)?
+          </li>
+          <li>
+            Does AI support reduce false alarms that lead to unnecessary
+            escalation / treatment?
+          </li>
+          <li>
+            Does AI support change clinician behaviour in a risky way — like
+            over-trusting a suggestion?
+          </li>
+          <li>
+            Who benefits more from AI help: junior readers or experienced
+            readers?
+          </li>
+        </ul>
       </section>
 
-      {/* What I built / designed */}
+      {/* What I designed */}
       <section className="space-y-3">
         <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
           What I designed
         </h2>
-        <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-base">
-          I designed an experimental protocol to test whether AI assistance improves
-          clinician diagnostic performance when reading chest X-rays for pneumonia.
-          The core idea: not “is the AI good,” but “does the human+AI team make
-          better, safer calls?”
+
+        <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+          I designed an experimental framework to evaluate AI-assist systems
+          in chest X-ray interpretation, focusing on suspected pneumonia. The
+          goal is to measure not only model performance, but clinician + AI
+          team performance.
         </p>
 
-        <ul className="list-disc pl-5 text-zinc-600 dark:text-zinc-400 leading-relaxed text-base space-y-2">
+        <ul className="list-disc pl-5 text-zinc-700 dark:text-zinc-300 leading-relaxed space-y-2">
           <li>
-            Multi-reader, multi-case (MRMC) design: multiple clinicians read the
-            same curated image set so we can compare across readers and across conditions.
+            <span className="font-medium text-zinc-900 dark:text-zinc-100">
+              Multi-reader, multi-case design (MRMC):
+            </span>{" "}
+            Multiple clinicians read the same curated image set. This lets us
+            compare performance across different readers, not just across
+            different images.
           </li>
+
           <li>
-            Multiple experimental arms: some clinicians see the raw image only,
-            others see AI suggestions, and others also see AI “confidence.”
+            <span className="font-medium text-zinc-900 dark:text-zinc-100">
+              Multiple study arms:
+            </span>{" "}
+            Each reader is randomly assigned different levels of AI support.
+            For example:
+            <ul className="list-disc pl-5 mt-2 space-y-1">
+              <li>
+                <span className="font-medium">Arm A:</span> image only
+                (baseline, no AI).
+              </li>
+              <li>
+                <span className="font-medium">Arm B:</span> AI suggestion
+                (“pneumonia: yes/no”).
+              </li>
+              <li>
+                <span className="font-medium">Arm C:</span> AI suggestion +
+                AI confidence score (“pneumonia likely: 92%”).
+              </li>
+            </ul>
           </li>
+
           <li>
-            Each clinician reports not just the diagnosis but their confidence in
-            that diagnosis.
+            <span className="font-medium text-zinc-900 dark:text-zinc-100">
+              Behavioural capture:
+            </span>{" "}
+            For each case, the clinician not only records the diagnosis but
+            also:
+            <ul className="list-disc pl-5 mt-2 space-y-1">
+              <li>their confidence,</li>
+              <li>their read time,</li>
+              <li>whether they would escalate / flag for further review.</li>
+            </ul>
           </li>
         </ul>
+
+        <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+          This is important because we can measure not just{" "}
+          <em>“Did the AI help?”</em> but <em>“Did the AI change behaviour
+          safely?”</em>
+        </p>
       </section>
 
-      {/* Why that matters */}
+      {/* Repo modules */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
+          Core modules in this project
+        </h2>
+
+        <div className="space-y-4">
+
+          <div className="rounded-2xl border border-zinc-200/60 dark:border-zinc-800/60 bg-white dark:bg-zinc-900 p-5">
+            <h3 className="font-medium text-zinc-900 dark:text-zinc-100">
+              <code className="text-xs font-mono">agent_design/</code>
+            </h3>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mt-2">
+              Designs the “AI assistant” behaviour: how suggestions are
+              surfaced to clinicians, how confidence is communicated, and when
+              intervention happens in the workflow. This matters because poor
+              UX can create blind trust or alert fatigue.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-zinc-200/60 dark:border-zinc-800/60 bg-white dark:bg-zinc-900 p-5">
+            <h3 className="font-medium text-zinc-900 dark:text-zinc-100">
+              <code className="text-xs font-mono">causal_analysis/</code>
+            </h3>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mt-2">
+              Investigates counterfactual questions like “Would this
+              decision have been different without AI?” and fairness
+              questions like “Does AI affect escalation decisions differently
+              across subgroups?” This is where safety, bias, and liability
+              live.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-zinc-200/60 dark:border-zinc-800/60 bg-white dark:bg-zinc-900 p-5">
+            <h3 className="font-medium text-zinc-900 dark:text-zinc-100">
+              <code className="text-xs font-mono">experiment_proposal/</code>
+            </h3>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mt-2">
+              Study protocol drafts, inclusion/exclusion criteria for image
+              sets, reader assignment logic, and instructions to clinicians.
+              This is essentially the “trial design” layer for a
+              human+AI evaluation.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-zinc-200/60 dark:border-zinc-800/60 bg-white dark:bg-zinc-900 p-5">
+            <h3 className="font-medium text-zinc-900 dark:text-zinc-100">
+              <code className="text-xs font-mono">docs/</code>
+            </h3>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mt-2">
+              Written analysis and Markdown reports: methodology notes,
+              interpretation of expected results, governance framing (how do
+              we certify or approve these tools responsibly?), and
+              communication to non-technical stakeholders.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Why this matters / impact */}
       <section className="space-y-3">
         <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
           Why this matters
         </h2>
-        <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-base">
-          This setup lets us answer questions that regulators and hospital
-          decision-makers actually care about:
+        <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+          This is more than “AI for healthcare.” It’s about accountability in
+          augmented decision-making. Hospitals, regulators, and vendors all
+          need to answer the same question: <em>Under what conditions does AI
+          support actually improve clinical care, and under what conditions
+          does it just shift responsibility?</em>
         </p>
 
-        <ul className="list-disc pl-5 text-zinc-600 dark:text-zinc-400 leading-relaxed text-base space-y-2">
+        <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+          This project provides an auditable way to measure that. The work is
+          designed so it can feed both:
+        </p>
+
+        <ul className="list-disc pl-5 text-zinc-700 dark:text-zinc-300 leading-relaxed space-y-2">
           <li>
-            Does AI support reduce false negatives (missed pneumonia)?
+            Clinical leadership (Is this safe to deploy to staff?)
           </li>
           <li>
-            Does AI support reduce false positives (unnecessary escalation/treatment)?
-          </li>
-          <li>
-            Does showing the AI’s “confidence score” make clinicians more accurate —
-            or does it just make them more confident, even when they’re wrong?
-          </li>
-          <li>
-            Do less-experienced readers benefit more from AI support than experts?
+            Policy / governance bodies (Does this align with responsible AI
+            and human oversight claims?)
           </li>
         </ul>
-
-        <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-base">
-          Those are not hypothetical policy questions. Those are procurement,
-          liability, and safety questions.
-        </p>
       </section>
 
-      {/* How it works (experiment flow) */}
-      <section className="space-y-3">
-        <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-          Experiment flow
-        </h2>
-
-        <ol className="list-decimal pl-5 text-zinc-600 dark:text-zinc-400 leading-relaxed text-base space-y-2">
-          <li>
-            Curate a set of chest X-ray cases with known ground truth labels
-            (confirmed pneumonia vs. no pneumonia).
-          </li>
-          <li>
-            Randomly assign each clinician-reader to different arms:
-            <ul className="list-disc pl-5 mt-2 space-y-1">
-              <li>Arm A: No AI (baseline)</li>
-              <li>Arm B: AI suggestion only (“pneumonia: yes/no”)</li>
-              <li>
-                Arm C: AI suggestion + AI confidence score
-                (“pneumonia likely: 92%”)
-              </li>
-            </ul>
-          </li>
-          <li>
-            For each case, record:
-            - their diagnosis,
-            - their confidence in that diagnosis,
-            - their read time.
-          </li>
-          <li>
-            Compare accuracy, overconfidence, and speed across arms.
-          </li>
-        </ol>
-
-        <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-base">
-          This lets us measure not just “did AI help,” but “did AI
-          change behaviour in a safe way.”
-        </p>
-      </section>
-
-      {/* My role */}
+      {/* My role / ownership */}
       <section className="space-y-3">
         <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
           My role
         </h2>
-        <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-base">
-          I drafted the study design, defined the experimental arms, and laid
-          out the evaluation metrics. I focused on decision quality,
-          calibration, and bias — not just model accuracy. The goal is to make
-          this usable by policy people (AI governance), clinical leadership,
-          and safety/approval bodies.
+        <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+          I architected the evaluation approach, defined the study arms,
+          scoped the behavioural metrics, and wrote the protocol language to
+          make it usable not only for technical review but also for governance
+          and decision-making. I positioned this project at the intersection
+          of ML performance, clinical workflow reality, and accountability.
         </p>
       </section>
 
-      {/* Next steps */}
+      {/* Access / contact */}
       <section className="space-y-3">
         <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-          What’s next
+          Access
         </h2>
-        <ul className="list-disc pl-5 text-zinc-600 dark:text-zinc-400 leading-relaxed text-base space-y-2">
-          <li>
-            Build a simple web interface to run the study and log clinician
-            responses in a structured way.
-          </li>
-          <li>
-            Run pilot with a small group of readers to test instructions and UI
-            friction.
-          </li>
-          <li>
-            Produce an interpretability + governance summary:
-            “Under which conditions does this AI support tool improve care?”
-          </li>
-        </ul>
+        <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+          The full repository (code, study design, and documentation) is
+          currently private. I’m open to sharing details or collaborating on
+          this work in research, evaluation, or policy contexts.
+        </p>
+        <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+          To discuss this project, reach out via LinkedIn, GitHub, or Telegram
+          using the links in the footer.
+        </p>
       </section>
     </section>
   );
