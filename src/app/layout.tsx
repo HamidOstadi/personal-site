@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Github, Linkedin, Twitter, Send, Instagram } from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export const metadata = {
   title: "Hamid Ostadi — Policy, Data & AI",
@@ -34,29 +35,35 @@ export default function RootLayout({
         <header className="w-full border-b border-zinc-200/60 dark:border-zinc-800/60 bg-white/80 dark:bg-zinc-900/80 backdrop-blur py-4">
           <nav className="mx-auto flex w-full max-w-3xl items-center justify-between px-4">
             {/* Left side: name / logo */}
-            <a href="/" className="font-semibold text-sm">
+             <a href="/" className="font-semibold text-sm text-zinc-900 dark:text-zinc-100">
               Hamid Ostadi
             </a>
 
-            {/* Right side: links */}
-            <div className="flex gap-4 text-sm text-zinc-600 dark:text-zinc-400">
-              <a className="hover:text-zinc-900 dark:hover:text-zinc-100" href="/">
-                Home
-              </a>
-              <a className="hover:text-zinc-900 dark:hover:text-zinc-100" href="/about">
-                About
-              </a>
-              <a className="hover:text-zinc-900 dark:hover:text-zinc-100" href="/projects">
-                Projects
-              </a>
-              <a className="hover:text-zinc-900 dark:hover:text-zinc-100" href="/blog">
-                Blog
-              </a>
-              <a className="hover:text-zinc-900 dark:hover:text-zinc-100" href="/contact">
-                Contact
-              </a>
+            {/* Right side: nav links + theme toggle */}
+            <div className="flex items-center gap-4">
+              <div className="flex gap-4 text-sm text-zinc-600 dark:text-zinc-400">
+                <a className="hover:text-zinc-900 dark:hover:text-zinc-100" href="/">
+                  Home
+                </a>
+                <a className="hover:text-zinc-900 dark:hover:text-zinc-100" href="/about">
+                  About
+                </a>
+                <a className="hover:text-zinc-900 dark:hover:text-zinc-100" href="/projects">
+                  Projects
+                </a>
+                <a className="hover:text-zinc-900 dark:hover:text-zinc-100" href="/blog">
+                  Blog
+                </a>
+                <a className="hover:text-zinc-900 dark:hover:text-zinc-100" href="/contact">
+                  Contact
+                </a>
+              </div>
+
+               {/* Theme toggle button */}
+              <ThemeToggle />
             </div>
           </nav>
+
         </header>
 
         {/* MAIN CONTENT */}
