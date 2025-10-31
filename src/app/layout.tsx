@@ -11,6 +11,11 @@ export const metadata = {
     title: "Hamid Ostadi — Policy, Data & AI",
     description:
       "AI, labour markets, digital economy, and practical tooling for decision-makers.",
+    icons: {
+    icon: "/favicon.png",
+    apple: "/icon-192.png",
+    shortcut: "/favicon.png",
+  },  
     url: "https://personal-site-ochre-three.vercel.app",
     siteName: "Hamid Ostadi",
     type: "website",
