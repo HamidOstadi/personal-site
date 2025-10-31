@@ -144,6 +144,18 @@ export default function RootLayout({
     </div>
   </div>
 </footer>
+{/* ✅ Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-2XTS9RGDY0"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-2XTS9RGDY0');
+            `,
+          }}
+        />
 
       </body>
     </html>
