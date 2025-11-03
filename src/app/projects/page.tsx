@@ -86,18 +86,6 @@ export default function ProjectsPage() {
              Explore arms, mechanisms, and KPIs of the radiology AI assistance RCT.
             </p>
         </a>
-
-        <a
-         href="/projects/radiology-ai/interactive"
-         className="rounded-2xl border border-zinc-200/60 dark:border-zinc-800/60 p-5 hover:shadow-md transition-shadow"
-        >
-            <h3 className="font-semibold text-zinc-900 dark:text-zinc-100">
-             CXR Reader Study — Interactive
-            </h3>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">
-             Explore arms, mechanisms, and KPIs of the radiology AI assistance RCT.
-            </p>
-        </a>
         {projects.map((proj) => (
           <article
             key={proj.title}
