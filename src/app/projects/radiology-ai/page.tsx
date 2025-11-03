@@ -1,3 +1,8 @@
+<p className="mt-2">
+  <a href="/projects/radiology-ai/interactive" className="text-blue-600 dark:text-blue-400 hover:underline">
+    → Explore the interactive overview
+  </a>
+</p>
 export default function RadiologyAIPage() {
   return (
     <section className="mx-auto max-w-3xl py-16 px-6 text-left space-y-10">
