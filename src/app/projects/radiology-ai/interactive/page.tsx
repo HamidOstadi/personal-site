@@ -178,22 +178,29 @@ export default function RadiologyInteractive() {
             <li>Design spec (estimands, masking)</li>
           </ul>
         </div>
-        <div className="rounded-2xl border border-zinc-200/60 bg-white p-5 shadow-sm dark:border-zinc-800/60 dark:bg-zinc-900">
-          <div className="text-xs font-semibold uppercase text-zinc-500 dark:text-zinc-400">
-            DAG (overview)
-          </div>
-          <div className="mt-3 rounded-lg bg-zinc-50 dark:bg-zinc-950 p-3">
+        <div className="mt-3 rounded-lg bg-zinc-50 dark:bg-zinc-950 p-3">
+            <a
+             href="/radiology-dag.svg"
+             target="_blank"
+             rel="noopener noreferrer"
+             title="Open full-size DAG in new tab"
+             className="block cursor-zoom-in"
+            >
             <Image
-            src="/radiology-dag.png" // 👈 exact filename in /public
-            alt="Causal DAG for CXR Reader Study"
-            width={1200}
-            height={800}
-            className="w-full h-auto"
-            priority
+             src="/radiology-dag.svg"
+             alt="Causal DAG for CXR Reader Study"
+             width={1200}
+             height={800}
+             className="w-full h-auto rounded-md shadow-sm hover:opacity-90 transition"
+             priority
             />
-</div>
+            </a>
+            <p className="mt-2 text-center text-xs text-zinc-500 dark:text-zinc-400">
+             Click to view full size
+            </p>
         </div>
-      </div>
+
+    </div>
 
       {/* Why it matters */}
       <div className="mt-10 rounded-2xl border border-zinc-200/60 bg-white p-5 shadow-sm dark:border-zinc-800/60 dark:bg-zinc-900">
