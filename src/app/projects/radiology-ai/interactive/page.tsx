@@ -180,14 +180,14 @@ export default function RadiologyInteractive() {
         </div>
         <div className="mt-3 rounded-lg bg-zinc-50 dark:bg-zinc-950 p-3">
             <a
-             href="/radiology-dag.svg"
+             href="/radiology-dag.png"
              target="_blank"
              rel="noopener noreferrer"
              title="Open full-size DAG in new tab"
              className="block cursor-zoom-in"
             >
             <Image
-             src="/radiology-dag.svg"
+             src="/radiology-dag.png"
              alt="Causal DAG for CXR Reader Study"
              width={1200}
              height={800}
