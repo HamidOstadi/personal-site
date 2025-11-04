@@ -65,15 +65,27 @@ export default function XFarsiAnalyzerPage() {
           <strong> (2)</strong> Farsi Processor for language normalization and tokenization,
           and <strong> (3)</strong> Analytics Engine to extract insights on content, sentiment, and networks.
         </p>
-        <div className="mt-5 flex justify-center">
-          <Image
-            src="/projects/x-farsi-analyzer/pipeline.svg"
-            alt="Module 1–3 pipeline"
-            width={800}
-            height={200}
-            className="rounded-xl border border-zinc-200 dark:border-zinc-800"
-          />
+        <div className="mt-5 flex flex-col items-center">
+            <a
+             href="/projects/x-farsi-analyzer/pipeline.svg"
+             target="_blank"
+             rel="noopener noreferrer"
+             title="Open full-size diagram in a new tab"
+             className="block"
+            >
+            <Image
+             src="/projects/x-farsi-analyzer/pipeline.svg"
+             alt="Module 1–3 pipeline"
+             width={800}
+             height={200}
+             className="rounded-xl border border-zinc-200 dark:border-zinc-800 cursor-zoom-in transition hover:scale-[1.02]"
+            />
+            </a>
+        <p className="mt-2 text-center text-xs text-zinc-600 dark:text-zinc-400">
+         Click the diagram to open it full-size in a new tab.
+        </p>
         </div>
+
       </section>
 
       {/* ---------- MODULE SUMMARIES ---------- */}
