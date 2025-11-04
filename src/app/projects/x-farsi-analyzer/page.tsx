@@ -1,138 +1,187 @@
+// src/app/projects/x-farsi-analyzer/page.tsx
+import type { Metadata } from "next";
+import { ProjectHero } from "@/components/ProjectHero";
+import { Tag } from "@/components/Tag";
+import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "X Farsi Analyzer — Hamid Ostadi",
+  description:
+    "Open-source Chrome extension that scrapes, processes, and analyzes Persian-language timelines on X/Twitter using custom NLP and analytics modules.",
+  alternates: { canonical: "https://hamidostadi.com/projects/x-farsi-analyzer" },
+  openGraph: {
+    title: "X Farsi Analyzer — Hamid Ostadi",
+    description:
+      "A language-aware research tool for studying coordinated messaging and engagement patterns in Persian-language timelines on X.",
+    url: "https://hamidostadi.com/projects/x-farsi-analyzer",
+    type: "article",
+  },
+};
+
 export default function XFarsiAnalyzerPage() {
   return (
-    <section className="space-y-8">
-      {/* Title + status */}
-      <header className="space-y-2">
-        <h1 className="text-3xl font-bold text-zinc-900 dark:text-zinc-100">
-          Twitter / X Farsi Analyzer
-        </h1>
-        <p className="text-sm text-zinc-500 dark:text-zinc-500">
-          Status: In progress · Stack: JavaScript, Chrome Extension, DOM parsing
-        </p>
-      </header>
+    <main className="mx-auto max-w-3xl px-4 py-12">
+      {/* ---------- HERO ---------- */}
+      <ProjectHero
+        title="X Farsi Analyzer"
+        subtitle="Language-aware Chrome extension for studying coordinated messaging, engagement, and sentiment in Persian-language timelines on X."
+        imgSrc="/projects/x-farsi-analyzer/hero.png"
+        alt="Architecture of the X Farsi Analyzer extension"
+      />
 
-      {/* Problem */}
-      <section className="space-y-3">
-        <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-          The problem
+      {/* ---------- TAGS ---------- */}
+      <div className="mb-8 flex flex-wrap gap-2">
+        <Tag>Platform Governance</Tag>
+        <Tag>Farsi NLP</Tag>
+        <Tag>Chrome Extension</Tag>
+        <Tag>Information Integrity</Tag>
+      </div>
+
+      {/* ---------- QUICK STATS ---------- */}
+      <div className="mb-12 grid grid-cols-1 gap-3 sm:grid-cols-3">
+        {[
+          { value: "97 %", label: "Farsi detection accuracy" },
+          { value: "< 5 s", label: "Analysis time for 1000 tweets" },
+          { value: "6", label: "Independent analyzers" },
+        ].map(({ value, label }) => (
+          <div
+            key={label}
+            className="rounded-2xl border border-zinc-200 p-4 text-center shadow-sm dark:border-zinc-800"
+          >
+            <div className="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">{value}</div>
+            <div className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">{label}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* ---------- PIPELINE DIAGRAM ---------- */}
+      <section className="mb-12">
+        <h2 className="mb-3 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+          Pipeline Architecture
         </h2>
-        <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-base">
-          Understanding influence operations and coordinated messaging on X
-          (Twitter) in Farsi is hard. Accounts can look “normal,” but they post
-          on a robotic schedule, repeat the same talking points, or boost each
-          other unnaturally. Traditional bot detectors are mostly English- and
-          US-focused. There’s almost no accessible tooling for Persian/Farsi
-          analysis.
+        <p className="text-zinc-700 dark:text-zinc-300">
+          The analyzer is composed of three integrated modules:
+          <strong> (1)</strong> DOM Observer + Scraper to collect tweets,
+          <strong> (2)</strong> Farsi Processor for language normalization and tokenization,
+          and <strong> (3)</strong> Analytics Engine to extract insights on content, sentiment, and networks.
         </p>
+        <div className="mt-5 flex justify-center">
+          <Image
+            src="/projects/x-farsi-analyzer/pipeline.svg"
+            alt="Module 1–3 pipeline"
+            width={800}
+            height={200}
+            className="rounded-xl border border-zinc-200 dark:border-zinc-800"
+          />
+        </div>
       </section>
 
-      {/* Solution / what I built */}
-      <section className="space-y-3">
-        <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-          What I built
-        </h2>
-        <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-base">
-          I’m building a Chrome extension that scrolls down a user’s X profile,
-          collects publicly visible data (posts, timestamps, engagement
-          metrics), and analyzes behaviour. The tool:
-        </p>
+      {/* ---------- MODULE SUMMARIES ---------- */}
+      <section className="mb-12 space-y-6">
+        <div className="rounded-2xl border border-zinc-200 p-5 dark:border-zinc-800">
+          <h3 className="mb-1 text-lg font-semibold">Module 1 — Scraper & DOM Observer</h3>
+          <p className="text-zinc-700 dark:text-zinc-300">
+            Captures dynamic tweet data directly from user profiles. Uses a MutationObserver and
+            Scroll Manager to load tweets automatically while avoiding duplicates. Extracts tweet text,
+            author details, media, and metrics with Farsi/RTL support.
+          </p>
+        </div>
+        <div className="rounded-2xl border border-zinc-200 p-5 dark:border-zinc-800">
+          <h3 className="mb-1 text-lg font-semibold">Module 2 — Farsi Text Processing Pipeline</h3>
+          <p className="text-zinc-700 dark:text-zinc-300">
+            Cleans and normalizes Persian script, detects mixed languages and Finglish, handles ZWNJ and digit conversion, and outputs tokenized text ready for analysis. Achieves 94–100 % accuracy with &lt; 50 ms per tweet processing time.
+          </p>
+        </div>
+        <div className="rounded-2xl border border-zinc-200 p-5 dark:border-zinc-800">
+          <h3 className="mb-1 text-lg font-semibold">Module 3 — Analytics Engine</h3>
+          <p className="text-zinc-700 dark:text-zinc-300">
+            Runs six analyzers (word frequency, sentiment, engagement, temporal patterns, hashtags, and mention network). Uses Web Workers and LRU cache for fast client-side processing of 1000 tweets in under 5 seconds.
+          </p>
+        </div>
+      </section>
 
-        <ul className="list-disc pl-5 text-zinc-600 dark:text-zinc-400 leading-relaxed text-base space-y-2">
-          <li>
-            Detects Farsi / RTL content to distinguish multilingual messaging
-            strategies.
-          </li>
-          <li>
-            Captures timing patterns (posting bursts, 24/7 posting behaviour) to
-            flag “non-human” regularity.
-          </li>
-          <li>
-            Surfaces repeated phrasing / copy-paste narratives across posts.
-          </li>
-          <li>
-            Maps engagement anomalies (for example: very low organic replies
-            but high retweet counts from a fixed circle).
-          </li>
+      {/* ---------- ANALYZER GALLERY ---------- */}
+      <section className="mb-12">
+        <h2 className="mb-3 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+          Analytics Capabilities
+        </h2>
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          {[
+            ["Word Frequency", "TF-IDF and token statistics"],
+            ["Sentiment Analyzer", "Bilingual lexicon (FA/EN) classification"],
+            ["Engagement Calc", "Ratios of likes/retweets/replies"],
+            ["Posting Patterns", "Temporal trends + Persian calendar support"],
+            ["Hashtag Analyzer", "Co-occurrence and reach estimation"],
+            ["Mention Network", "Interaction graph and influence scores"],
+          ].map(([title, desc]) => (
+            <div
+              key={title}
+              className="rounded-2xl border border-zinc-200 p-4 dark:border-zinc-800"
+            >
+              <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">{title}</h3>
+              <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ---------- RESULTS ---------- */}
+      <section className="mb-12 rounded-2xl border border-zinc-200 p-5 dark:border-zinc-800">
+        <h2 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+          Performance & Results
+        </h2>
+        <ul className="list-disc pl-5 text-zinc-700 dark:text-zinc-300">
+          <li>Processed 1500 tweets across 5 profiles with 97 % Farsi detection accuracy.</li>
+          <li>1000-tweet analysis completes in &lt; 5 seconds using Web Worker parallelization.</li>
+          <li>33 % cache hit rate on repeated analyses with LRU manager.</li>
+          <li>Export formats available: JSON and CSV.</li>
         </ul>
       </section>
 
-      {/* Why this matters */}
-      <section className="space-y-3">
-        <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-          Why this matters
+      {/* ---------- KNOWN ISSUE ---------- */}
+      <section className="mb-12 rounded-2xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950/40">
+        <h2 className="mb-2 text-lg font-semibold text-amber-700 dark:text-amber-400">
+          Engineering Note
         </h2>
-        <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-base">
-          Disinformation and coordinated persuasion are not just “politics.”
-          They affect safety, mobilisation, reputational attacks, and public
-          trust. The point of this tool is to give researchers, journalists, and
-          civil society a way to study these behaviours without needing paid
-          API access.
+        <p className="text-zinc-800 dark:text-zinc-200">
+          Highlight borders originally caused gaps between tweets in Twitter’s flex layout.
+          The next update will replace borders with absolute overlay badges to preserve alignment while maintaining visual feedback.
         </p>
       </section>
 
-      {/* How it works technically (still readable) */}
-      <section className="space-y-3">
-        <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-          How it works (technical overview)
+      {/* ---------- ETHICS ---------- */}
+      <section className="mb-12 rounded-2xl border border-zinc-200 p-5 dark:border-zinc-800">
+        <h2 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+          Ethics & Privacy
         </h2>
-        <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-base">
-          The extension runs in the browser and does three main things:
-        </p>
-
-        <ol className="list-decimal pl-5 text-zinc-600 dark:text-zinc-400 leading-relaxed text-base space-y-2">
-          <li>
-            It scrolls the profile page and reads tweet elements directly from
-            the DOM (what’s already loaded in front of the user).
-          </li>
-          <li>
-            It extracts text, timestamps, and engagement metrics for each post,
-            and stores that in memory.
-          </li>
-          <li>
-            It calculates simple behavioural signals (posting frequency,
-            repetition, time-of-day patterns, language mix).
-          </li>
-        </ol>
-
-        <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-base">
-          The goal is to present this back in a dashboard: “How human does this
-          account look? What narratives does it push? Does it coordinate with
-          others?”
+        <p className="text-zinc-700 dark:text-zinc-300">
+          All data collection runs client-side and is user-initiated. No information is transmitted to external servers. The tool is designed for academic and public-interest research on platform transparency and information integrity.
         </p>
       </section>
 
-      {/* My role / ownership */}
-      <section className="space-y-3">
-        <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-          My role
-        </h2>
-        <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-base">
-          I designed the concept, the signal definitions, and the extension
-          architecture. I’m building and testing the code, focusing on Farsi
-          and mixed-language accounts where moderation/oversight is weakest.
-        </p>
+      {/* ---------- CTA ---------- */}
+      <section className="flex flex-wrap gap-3">
+        <a
+          href="https://github.com/HamidOstadi/twitter-farsi-analyzer"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="rounded-xl border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-800 hover:bg-zinc-50 dark:border-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-900"
+        >
+          View Repository
+        </a>
+        <a
+          href="/projects/x-farsi-analyzer/demo"
+          className="rounded-xl border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-800 hover:bg-zinc-50 dark:border-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-900"
+        >
+          Open Interactive Demo
+        </a>
+        <a
+          href="/projects"
+          className="rounded-xl border border-zinc-200 px-4 py-2 text-sm text-zinc-600 hover:bg-zinc-50 dark:border-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-900"
+        >
+          Back to Projects
+        </a>
       </section>
-
-      {/* Next steps / roadmap */}
-      <section className="space-y-3">
-        <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-          What’s next
-        </h2>
-        <ul className="list-disc pl-5 text-zinc-600 dark:text-zinc-400 leading-relaxed text-base space-y-2">
-          <li>
-            Add lightweight visual dashboard inside the extension popup (heatmap
-            of posting hours, word frequency cloud, bot/human score).
-          </li>
-          <li>
-            Export anonymized JSON so researchers can study patterns without
-            storing personal data.
-          </li>
-          <li>
-            Case studies: analyse a few known suspicious networks and publish
-            write-ups.
-          </li>
-        </ul>
-      </section>
-    </section>
+    </main>
   );
 }

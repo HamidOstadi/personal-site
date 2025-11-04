@@ -1,0 +1,65 @@
+graph TB
+    subgraph "Module 1: Data Collection"
+        A[Chrome Extension Scraper]
+        A1[DOM Observer]
+        A2[Tweet Scraper]
+        A3[Scroll Manager]
+        A --> A1
+        A --> A2
+        A --> A3
+    end
+    
+    subgraph "Module 2: Text Processing"
+        B[Farsi NLP Pipeline]
+        B1[Language Detector]
+        B2[Character Normalizer]
+        B3[Tokenizer]
+        B4[Stopword Remover]
+        B --> B1
+        B1 --> B2
+        B2 --> B3
+        B3 --> B4
+    end
+    
+    subgraph "Module 3: Core Analytics"
+        C[Analytics Engine]
+        C1[Word Frequency]
+        C2[Sentiment Analyzer]
+        C3[Engagement Calculator]
+        C4[Posting Patterns]
+        C5[Hashtag Analyzer]
+        C6[Mention Network]
+        C --> C1
+        C --> C2
+        C --> C3
+        C --> C4
+        C --> C5
+        C --> C6
+    end
+    
+    subgraph "Module 4: Advanced Features"
+        D[Advanced Analytics]
+        D1[Topic Clustering]
+        D2[Bot Detection]
+        D3[Content Originality]
+        D4[URL Analysis]
+        D5[Behavioral Insights]
+        D --> D1
+        D --> D2
+        D --> D3
+        D --> D4
+        D --> D5
+    end
+    
+    Twitter[Twitter/X Profile] --> A
+    A -->|Raw Tweet Data| B
+    B -->|Processed Tokens| C
+    C -->|Basic Analytics| D
+    D -->|Advanced Insights| Output[Analysis Results]
+    
+    style A fill:#e1f5ff
+    style B fill:#fff4e1
+    style C fill:#e8f5e9
+    style D fill:#f3e5f5
+    style Twitter fill:#1DA1F2,color:#fff
+    style Output fill:#ff6b6b,color:#fff
