@@ -73,7 +73,7 @@ export default function RadiologyInteractive() {
     <section className="mx-auto max-w-3xl px-4 py-16 text-zinc-900 dark:text-zinc-100">
       <header className="space-y-2">
         <h1 className="text-2xl font-semibold tracking-tight">
-          CXR Reader Study — Interactive Overview
+          RCT: AI-Assitance Effect on Reading X-Ray Accuracy
         </h1>
         <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
           Explore the randomized controlled design, assistance mechanism, and
