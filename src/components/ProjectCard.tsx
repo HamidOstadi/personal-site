@@ -6,7 +6,7 @@ type Props = {
   title: string;
   href: string;
   blurb: string;
-  status: "Design" | "Prototype" | "Live";
+  status: "Live" | "In progress" | "Prototype" | "Design" | "Done";
   tags: string[];
   image?: string; // e.g. "/projects/x-farsi-analyzer/thumb.jpg"
 };

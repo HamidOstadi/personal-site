@@ -4,7 +4,7 @@ type Project = {
   title: string;
   problem: string;
   contribution: string;
-  status: "Live" | "In progress" | "Prototype" | "Design";
+    status: "Live" | "In progress" | "Prototype" | "Design" | "Done";
   tags: string[];
   slug?: string; // NEW: optional link to a detail page
 };
@@ -29,6 +29,16 @@ const projects: Project[] = [
     status: "Design",
     tags: ["AI Safety", "Health", "Experimental Design"],
     slug: "/projects/radiology-ai",
+  },
+  {
+  title: "Measuring Micromobility – Capstone Project with TfL",
+  problem:
+    "Micromobility adoption in London is uneven across income and geography; TfL needs reliable measures and practical levers to improve equitable access.",
+  contribution:
+    "Built a measurement framework (exposure, usage, accessibility), linked area indicators to trip data, and designed behaviorally informed interventions with an equity screen.",
+  status: "Done",
+  tags: ["Public Transport", "Micromobility", "Data Analysis"],
+  slug: "/projects/tfl-micromobility",
   },
   {
     title: "Climate & Social Protection Tracker (UNICEF)",
@@ -111,14 +121,16 @@ export default function ProjectsPage() {
 
               <span
                 className={
-                  "shrink-0 rounded-full border px-2 py-0.5 text-[11px] font-medium " +
-                  (proj.status === "Live"
-                    ? "border-emerald-400/40 text-emerald-600 dark:text-emerald-400"
-                    : proj.status === "In progress"
-                    ? "border-blue-400/40 text-blue-600 dark:text-blue-400"
-                    : proj.status === "Prototype"
-                    ? "border-amber-400/40 text-amber-600 dark:text-amber-400"
-                    : "border-zinc-400/40 text-zinc-600 dark:text-zinc-400")
+                 "shrink-0 rounded-full border px-2 py-0.5 text-[11px] font-medium " +
+                 (proj.status === "Live"
+                  ? "border-emerald-400/40 text-emerald-600 dark:text-emerald-400"
+                  : proj.status === "Done"
+                  ? "border-emerald-400/40 text-emerald-600 dark:text-emerald-400"
+                  : proj.status === "In progress"
+                  ? "border-blue-400/40 text-blue-600 dark:text-blue-400"
+                  : proj.status === "Prototype"
+                  ? "border-amber-400/40 text-amber-600 dark:text-amber-400"
+                  : "border-zinc-400/40 text-zinc-600 dark:text-zinc-400")
                 }
               >
                 {proj.status}
