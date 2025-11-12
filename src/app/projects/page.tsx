@@ -41,6 +41,16 @@ const projects: Project[] = [
   slug: "/projects/tfl-micromobility",
   },
   {
+    title: "Reducing Bedtime Procrastination with MCII (RCT)",
+    problem:
+      "Late-night digital media use leads to widespread bedtime procrastination, harming sleep quality and productivity among students.",
+    contribution:
+      "We ran a randomized trial at LSE testing Mental Contrasting with Implementation Intentions (MCII). The intervention reduced bedtime procrastination by 0.6 points, cut pre-sleep media by 30 minutes, and improved satisfaction with bedtime control by +1.34 points.",
+    status: "Done",
+    tags: ["Behavioural Economics", "RCT", "Sleep & Self-Control"],
+    slug: "/projects/bedtime-procrastination",
+  },
+  {
     title: "Climate & Social Protection Tracker (UNICEF)",
     problem:
       "Climate policy in Eastern Europe and Central Asia often talks about ‘resilience,’ but doesn’t always specify social protection for workers, gender risks, or just transition mechanisms.",
