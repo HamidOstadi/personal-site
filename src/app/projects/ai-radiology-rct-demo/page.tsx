@@ -9,6 +9,7 @@ type Case = {
   peTruth: "Yes" | "No";
   hasAI: boolean;
   aiLabel?: string;
+  aiConfidence?: number | null; 
   age: number;
   sex: "M" | "F";
 };
@@ -65,16 +66,23 @@ export default function AiRadiologyRctDemoPage() {
       ? sequence[currentIndex]
       : null;
 
-  function handleStartDemo() {
-    const shuffled = shuffle(CASES);
-    setSequence(shuffled);
-    setCurrentIndex(0);
-    setCurrentDiagnosis(null);
-    setCurrentConfidence(0);
-    setResponses([]);
-    setCaseStartTime(Date.now());
-    setView("experiment");
-  }
+function handleStartDemo() {
+  // Assign a random AI confidence (0–10) to AI cases
+  const shuffled = shuffle(CASES).map(c => ({
+    ...c,
+    aiConfidence: c.hasAI ? Math.floor(Math.random() * 11) : null,
+  }));
+
+  setSequence(shuffled);
+  setCurrentIndex(0);
+  setCurrentDiagnosis(null);
+  setCurrentConfidence(0);
+  setResponses([]);
+  setCaseStartTime(Date.now());
+  setView("experiment");
+}
+
+
 
   function recordCurrentResponse(timeMs: number | null) {
     if (!currentCase || currentDiagnosis === null) return;
@@ -270,6 +278,7 @@ export default function AiRadiologyRctDemoPage() {
               provide clinical advice, and should not be used for diagnosis or
               treatment decisions.
             </p>
+
           </section>
 
           {/* Call to action */}
@@ -334,6 +343,14 @@ export default function AiRadiologyRctDemoPage() {
                       {currentCase.aiLabel ?? "N/A"}
                     </span>
                   </p>
+                  <p className="text-sm text-muted-foreground">
+                    Confidence score:{" "}
+                    <span className="font-medium">
+                    {currentCase.aiConfidence}
+                    </span>{" "}
+                    / 10
+                </p>
+
                   <p className="text-xs text-muted-foreground">
                     In the real study, this panel would be populated by a
                     deployed AI model. Here, it is a fixed suggestion shown as
